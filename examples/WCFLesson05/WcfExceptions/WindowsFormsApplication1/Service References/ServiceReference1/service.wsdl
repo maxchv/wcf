@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceCalculator" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WcfExceptions" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceCalculator_Div_InputMessage">
+    <wsdl:part name="parameters" element="tns:Div" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCalculator_Div_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DivResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceCalculator_Div_DevideByZeroExeptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WcfExceptions" name="detail" element="q1:DevideByZeroExeption" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceCalculator">
+    <wsdl:operation name="Div">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceCalculator/Div" message="tns:IServiceCalculator_Div_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceCalculator/DivResponse" message="tns:IServiceCalculator_Div_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceCalculator/DivDevideByZeroExeptionFault" name="DevideByZeroExeptionFault" message="tns:IServiceCalculator_Div_DevideByZeroExeptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceCalculator" type="tns:IServiceCalculator">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Div">
+      <soap:operation soapAction="http://tempuri.org/IServiceCalculator/Div" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="DevideByZeroExeptionFault">
+        <soap:fault use="literal" name="DevideByZeroExeptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceCalculator">
+    <wsdl:port name="BasicHttpBinding_IServiceCalculator" binding="tns:BasicHttpBinding_IServiceCalculator">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfExceptions/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

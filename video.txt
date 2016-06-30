@@ -1,0 +1,22 @@
+Введение в wcf. Создание базового проекта
+https://youtu.be/E4m5JFdz9pQ
+
+DataContract, DataMember, ServiceBehavior
+https://youtu.be/w2Oxu1nJBlk
+
+KnownType
+https://youtu.be/5Ne27ilkLqM
+
+Logging
+https://youtu.be/b-ifJbwSaVA
+
+Faults
+https://youtu.be/8auxyimVcuI
+https://youtu.be/GfMT7AtLpUA
+
+Bindings Config
+https://youtu.be/yQBYNHg1iNc
+
+Callback, OneWay
+https://youtu.be/2rwz4_jecm4
+https://youtu.be/2NBVWkZzDi8

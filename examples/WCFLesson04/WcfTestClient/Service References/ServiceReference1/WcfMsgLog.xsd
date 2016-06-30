@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfMsgLog" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfMsgLog" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://itstep.dp.ua/TestWCF" />
+  <xs:complexType name="ExtType">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://itstep.dp.ua/TestWCF" base="q1:ExtentionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExtType" nillable="true" type="tns:ExtType" />
+  <xs:complexType name="ExtType2">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://itstep.dp.ua/TestWCF" base="q2:ExtentionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExtType2" nillable="true" type="tns:ExtType2" />
+</xs:schema>

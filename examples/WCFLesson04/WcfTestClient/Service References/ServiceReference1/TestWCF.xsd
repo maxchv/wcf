@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://itstep.dp.ua/TestWCF" elementFormDefault="qualified" targetNamespace="http://itstep.dp.ua/TestWCF" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ExtentionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OptionalData" nillable="true" type="xs:string" />
+      <xs:element name="ImportantData" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtentionData" nillable="true" type="tns:ExtentionData" />
+</xs:schema>
