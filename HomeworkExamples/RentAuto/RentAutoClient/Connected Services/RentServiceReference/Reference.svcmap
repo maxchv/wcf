@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1ddb6029-0e24-4eeb-843d-6bcaca437de4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="b97f9aa5-e048-4ac2-95cf-9725bc0569c8" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5cf4254a-0737-4b1e-85aa-bc51cd9da3aa" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="b16fec3c-23b2-46b1-b0b0-73c196c872a9" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?xsd=xsd2" />
+    <MetadataFile FileName="RentService.wsdl" MetadataType="Wsdl" ID="fb4f7831-90bf-4455-8dbc-ff611840c80e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="a1691bf5-f687-4e4e-a201-eb1c2bde258b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RentService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IRentService_GetAllCars_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCars" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_GetAllCars_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCarsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_AddCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddCar" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_AddCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_RemoveCar_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCar" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_RemoveCar_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCarResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_GetRent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRent" />
+  </wsdl:message>
+  <wsdl:message name="IRentService_GetRent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IRentService">
+    <wsdl:operation name="GetAllCars">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentService/GetAllCars" message="tns:IRentService_GetAllCars_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentService/GetAllCarsResponse" message="tns:IRentService_GetAllCars_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentService/AddCar" message="tns:IRentService_AddCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentService/AddCarResponse" message="tns:IRentService_AddCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCar">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentService/RemoveCar" message="tns:IRentService_RemoveCar_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentService/RemoveCarResponse" message="tns:IRentService_RemoveCar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRentService/GetRent" message="tns:IRentService_GetRent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRentService/GetRentResponse" message="tns:IRentService_GetRent_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IRentService" type="tns:IRentService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCars">
+      <soap:operation soapAction="http://tempuri.org/IRentService/GetAllCars" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCar">
+      <soap:operation soapAction="http://tempuri.org/IRentService/AddCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCar">
+      <soap:operation soapAction="http://tempuri.org/IRentService/RemoveCar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRent">
+      <soap:operation soapAction="http://tempuri.org/IRentService/GetRent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RentService">
+    <wsdl:port name="BasicHttpBinding_IRentService" binding="tns:BasicHttpBinding_IRentService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/RentAutoWcf/RentService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/EmployeeService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/EmployeeService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="Gender">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Male" />
+      <xs:enumeration value="Female" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Gender" nillable="true" type="tns:Gender" />
+  <xs:simpleType name="EmployeeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FullTimeEmployee" />
+      <xs:enumeration value="PartTimeEmployee" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EmployeeType" nillable="true" type="tns:EmployeeType" />
+</xs:schema>

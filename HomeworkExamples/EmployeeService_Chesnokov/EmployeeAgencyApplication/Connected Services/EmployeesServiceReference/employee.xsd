@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://itstep.dp.ua/employee" elementFormDefault="qualified" targetNamespace="http://itstep.dp.ua/employee" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/EmployeeService" />
+  <xs:complexType name="Employee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/EmployeeService" minOccurs="0" name="Gender" type="q1:Gender" />
+      <xs:element minOccurs="0" name="DateOfBirth" type="xs:dateTime" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/EmployeeService" minOccurs="0" name="EmployeeType" type="q2:EmployeeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employee" nillable="true" type="tns:Employee" />
+  <xs:complexType name="FullTimeEmployee">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MonthSallary" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="FullTimeEmployee" nillable="true" type="tns:FullTimeEmployee" />
+  <xs:complexType name="PartTimeEmployee">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Employee">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HourlyPay" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoursWorked" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PartTimeEmployee" nillable="true" type="tns:PartTimeEmployee" />
+  <xs:complexType name="ArrayOfEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Employee" nillable="true" type="tns:Employee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmployee" nillable="true" type="tns:ArrayOfEmployee" />
+</xs:schema>
