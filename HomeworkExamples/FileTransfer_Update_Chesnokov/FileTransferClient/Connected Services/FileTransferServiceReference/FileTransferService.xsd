@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/FileTransferService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/FileTransferService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="FileDataUpload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="DateUpload" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsLastPart" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDataUpload" nillable="true" type="tns:FileDataUpload" />
+  <xs:complexType name="FileInfoEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateUpload" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNameOnServer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginalFileName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileInfoEx" nillable="true" type="tns:FileInfoEx" />
+  <xs:complexType name="FileDataDownload">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="IsLastPart" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FileDataDownload" nillable="true" type="tns:FileDataDownload" />
+  <xs:simpleType name="FileListType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AllFiles" />
+      <xs:enumeration value="ByAuthor" />
+      <xs:enumeration value="ByFileName" />
+      <xs:enumeration value="ByDateUpload" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FileListType" nillable="true" type="tns:FileListType" />
+  <xs:complexType name="ArrayOfFileInfoEx">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FileInfoEx" nillable="true" type="tns:FileInfoEx" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFileInfoEx" nillable="true" type="tns:ArrayOfFileInfoEx" />
+</xs:schema>

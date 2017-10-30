@@ -1,0 +1,160 @@
+﻿<controls:MetroWindow x:Class="FileTransferClient.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="Company File Transfer"
+                      Height="450"
+                      Width="750"
+
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+
+                      WindowStartupLocation="CenterScreen">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <DataGrid Grid.Row="0"
+                  AutoGenerateColumns="False"
+                  BorderBrush="Gray"
+                  BorderThickness="1"
+                  SelectionMode="Single"
+                  Name="FilesDataGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя файла" Binding="{Binding OriginalFileName}" Width="200" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Автор" Binding="{Binding Author}" Width="150" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Дата загрузки" Binding="{Binding DateUpload}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" IsReadOnly="True"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{DynamicResource MetroFlatButton}"
+                                    Click="DownloadFileButton_OnClick"
+                                    Padding="0"
+                                    Background="Transparent"
+                                    ToolTip="Загрузить файл на компьютер">
+                                <Image Source="DownloadArrowIcon.png"
+                                       Width="32"
+                                       Height="32"
+                                       Margin="0"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Style="{DynamicResource MetroFlatButton}"
+                                    Click="RemoveFileButton_OnClick"
+                                    Padding="0"
+                                    Background="Transparent"
+                                    ToolTip="Удалить файл на сервере">
+                                <Image Source="RemoveFileIcon.png"
+                                       Width="32"
+                                       Height="32"
+                                       Margin="0"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <ComboBox Grid.Column="0"
+                      Name="FileListTypeComboBox"
+                      Height="25"
+                      VerticalAlignment="Center"
+                      Margin="0,5,5,5"
+                      SelectedIndex="0"
+                      SelectionChanged="FileListTypeComboBox_OnSelectionChanged"/>
+            
+            <TextBox Grid.Column="1"
+                     Name="ValueTextBox"
+                     VerticalAlignment="Center"
+                     controls:TextBoxHelper.ClearTextButton="True" 
+                     controls:TextBoxHelper.Watermark="Значение"
+                     Margin="5"/>
+            
+            <DatePicker Grid.Column="1"
+                        Name="DateUploadDatePicker"
+                        VerticalAlignment="Center"
+                        Margin="5"
+                        Visibility="Hidden"/>
+            
+            <Button Grid.Column="2"
+                    Content="Поиск"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    Padding="31,5"
+                    Style="{DynamicResource MetroFlatButton}"
+                    Click="GetFilesListButton_OnClick"/>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBox Grid.Row="0"
+                     Grid.Column="0"
+                     Name="FileNameTextBox"
+                     controls:TextBoxHelper.ClearTextButton="True" 
+                     controls:TextBoxHelper.Watermark="Имя файла"
+                     ToolTip="Имя файла"
+                     Margin="0,5,5,5"/>
+            <TextBox Grid.Row="1"
+                     Grid.Column="0"
+                     Name="AuthorTextBox"
+                     controls:TextBoxHelper.ClearTextButton="True" 
+                     controls:TextBoxHelper.Watermark="Автор"
+                     ToolTip="Автор"
+                     Margin="0,5,5,5"/>
+            
+            <TextBox Grid.Row="0"
+                     Grid.RowSpan="2"
+                     Grid.Column="1"
+                     Name="DescriptionTextBox"
+                     controls:TextBoxHelper.ClearTextButton="True" 
+                     controls:TextBoxHelper.Watermark="Описание"
+                     ToolTip="Описание"
+                     Margin="5"
+                     AcceptsReturn="True"
+                     AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto"
+                     TextWrapping="Wrap"/>
+            
+            <Button Grid.Row="0"
+                    Grid.Column="2"
+                    Content="Обзор..."
+                    Margin="5"
+                    Padding="20,5"
+                    Style="{DynamicResource MetroFlatButton}"
+                    Click="BrowseButton_OnClick"/>
+            
+            <Button Grid.Row="1"
+                    Grid.Column="2"
+                    Content="Загрузить"
+                    Margin="5"
+                    Padding="20,5"
+                    Style="{DynamicResource MetroFlatButton}"
+                    Click="UploadButton_OnClick"/>
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

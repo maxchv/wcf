@@ -1,0 +1,65 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator" Height="275" Width="225" Style="{DynamicResource WindowStyle}"
+        MouseDown="MainWindow_OnMouseDown" Focusable="True"
+        ResizeMode="NoResize">
+    <Grid Margin="5" MouseDown="MainWindow_OnMouseDown" Focusable="True" Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Name="ButtonZero"  Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="ButtonNumber_OnClick" Content="0" Style="{DynamicResource NumberButtonStyle}" />
+        <Button Name="ButtonOne"   Grid.Row="4" Grid.Column="0" Click="ButtonNumber_OnClick" Content="1" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonTwo"   Grid.Row="4" Grid.Column="1" Click="ButtonNumber_OnClick" Content="2" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonThree" Grid.Row="4" Grid.Column="2" Click="ButtonNumber_OnClick" Content="3" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonFour"  Grid.Row="3" Grid.Column="0" Click="ButtonNumber_OnClick" Content="4" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonFive"  Grid.Row="3" Grid.Column="1" Click="ButtonNumber_OnClick" Content="5" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonSix"   Grid.Row="3" Grid.Column="2" Click="ButtonNumber_OnClick" Content="6" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonSeven" Grid.Row="2" Grid.Column="0" Click="ButtonNumber_OnClick" Content="7" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonEight" Grid.Row="2" Grid.Column="1" Click="ButtonNumber_OnClick" Content="8" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonNine"  Grid.Row="2" Grid.Column="2" Click="ButtonNumber_OnClick" Content="9" Style="{DynamicResource NumberButtonStyle}"/>
+        <Button Name="ButtonComma" Grid.Row="5" Grid.Column="2" Click="ButtonComma_OnClick"  Content="," Style="{DynamicResource NumberButtonStyle}" />
+
+        <Button Name="ButtonDevide"    Grid.Row="2" Grid.Column="3" Click="ButtonOperator_OnClick" Content="/" Style="{DynamicResource ActionButtonStyle}"/>
+        <Button Name="ButtonMultiply"  Grid.Row="3" Grid.Column="3" Click="ButtonOperator_OnClick" Content="*" Style="{DynamicResource ActionButtonStyle}"/>
+        <Button Name="ButtonMinus"     Grid.Row="4" Grid.Column="3" Click="ButtonOperator_OnClick" Content="-" Style="{DynamicResource ActionButtonStyle}"/>
+        <Button Name="ButtonPlus"      Grid.Row="5" Grid.Column="3" Click="ButtonOperator_OnClick" Content="+" Style="{DynamicResource ActionButtonStyle}"/>
+        <Button Name="ButtonClear"     Grid.Row="2" Grid.Column="4" Click="ButtonClear_OnClick" Content="C" Style="{DynamicResource ActionButtonStyle}"/>
+        <Button Name="ButtonPlusMinus" Grid.Row="3" Grid.Column="4" Click="ButtonPlusMinus_OnClick" Content="+/-" Style="{DynamicResource ActionButtonStyle}"/>
+        <Button Name="ButtonEqually"   Grid.Row="4" Grid.Column="4" Grid.RowSpan="2" Click="ButtonEqually_OnClick" Content="=" Style="{DynamicResource ActionButtonStyle}"/>
+
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" BorderBrush="Black" BorderThickness="1" Margin="2 5 2 2 ">
+            <StackPanel  Orientation="Vertical" Style="{DynamicResource StackPanelResultStyle}">
+                <Label Name="Result2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0 0 2 0" Style="{DynamicResource ResultLabelStyle}"/>
+                <Label Name="Result1" HorizontalAlignment="Right" VerticalAlignment="Top" Padding="0 0 2 0" Style="{DynamicResource ResultLabelStyle}"/>
+            </StackPanel>
+        </Border>
+
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Style="{DynamicResource MenuStyle}" Focusable="False" >
+            <MenuItem Header="Вид" Focusable="False">
+                <MenuItem Header="Светлая тема" Style="{DynamicResource MenuItemStyle}" Tag="LightTheme.xaml" Click="MenuItem_OnClick"/>
+                <MenuItem Header="Темная тема" Style="{DynamicResource MenuItemStyle}" Tag="DarkTheme.xaml" Click="MenuItem_OnClick"/>
+                <MenuItem Header="Темная тема 2" Style="{DynamicResource MenuItemStyle}" Tag="AnimatedDarkTheme.xaml" Click="MenuItem_OnClick"/>
+                <MenuItem Header="Тема 1" Style="{DynamicResource MenuItemStyle}" Tag="Standard.xaml" Click="MenuItem_OnClick"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
