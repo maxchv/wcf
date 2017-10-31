@@ -1,0 +1,109 @@
+﻿<Controls:MetroWindow x:Class="EmployeeManagerApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmployeeManagerApp"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="Подключится к сервису" Name="ServiceConnect" Click="ServiceConnect_Click" />
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Border BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" BorderThickness="1" Padding="1" Name="ContentApplication">
+        <Grid>
+
+            <TabControl>
+                <TabItem Header="Полная занятость">
+                    <Grid>
+                        <ListView Name="FullTimeEmployeesList">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                    <GridViewColumn Header="Пол" DisplayMemberBinding="{Binding Gender}"/>
+                                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth}"/>
+                                    <GridViewColumn Header="Оплата (мес.)" DisplayMemberBinding="{Binding MonthSallary}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Border CornerRadius="10,10,0,0" Background="#FF323232" BorderBrush="{StaticResource AccentColorBrush}" Margin="0,0,0,-5"  BorderThickness="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" >
+                                <StackPanel.Resources>
+                                    <Style x:Key="ButtonsEditFullTimeEmployee" BasedOn="{StaticResource MetroCircleButtonStyle}" TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                        <Setter Property="Opacity" Value="1"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=FullTimeEmployeesList,Path=SelectedItem}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <Button Style="{StaticResource ResourceKey=ButtonsEditFullTimeEmployee}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="FullTimeRemoveButton_Click">
+                                    <Image Source="appbar.delete.png"/>
+                                </Button>
+                                <Button Style="{StaticResource ResourceKey=ButtonsEditFullTimeEmployee}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="FullTimeEditButton_Click">
+                                    <Image Source="appbar.edit.png"/>
+                                </Button>
+                                <Button Style="{StaticResource ResourceKey=MetroCircleButtonStyle}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="FullTimeAddButton_Click">
+                                    <Image Source="appbar.add.png"/>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Частичная занятость">
+                    <Grid>
+                        <ListView Name="PartTimeEmployeesList">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name}"/>
+                                    <GridViewColumn Header="Пол" DisplayMemberBinding="{Binding Gender}"/>
+                                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding DateOfBirth}"/>
+                                    <GridViewColumn Header="Оплата (час.)" DisplayMemberBinding="{Binding HourlyPay}"/>
+                                    <GridViewColumn Header="Отработано" DisplayMemberBinding="{Binding HoursWorked}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Border CornerRadius="10,10,0,0" Background="#FF323232" BorderBrush="{StaticResource AccentColorBrush}" Margin="0,0,0,-5"  BorderThickness="1" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" >
+                                <StackPanel.Resources>
+                                    <Style x:Key="ButtonsEditPartTimeEmployee" BasedOn="{StaticResource MetroCircleButtonStyle}" TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                        <Setter Property="Opacity" Value="1"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=PartTimeEmployeesList,Path=SelectedItem}" Value="{x:Null}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                                <Setter Property="Opacity" Value="0.5"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </StackPanel.Resources>
+
+                                <Button Style="{StaticResource ResourceKey=ButtonsEditPartTimeEmployee}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="PartTimeRemoveButton_Click">
+                                    <Image Source="appbar.delete.png"/>
+                                </Button>
+                                <Button Style="{StaticResource ResourceKey=ButtonsEditPartTimeEmployee}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="PartTimeEditButton_Click">
+                                    <Image Source="appbar.edit.png"/>
+                                </Button>
+                                <Button Style="{StaticResource ResourceKey=MetroCircleButtonStyle}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="PartTimeAddButton_Click">
+                                    <Image Source="appbar.add.png"/>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+            <Border CornerRadius="0,10,0,0" Background="#FF323232" BorderBrush="{StaticResource AccentColorBrush}" Margin="-5,0,0,-5"  BorderThickness="1" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <Button Style="{StaticResource ResourceKey=MetroCircleButtonStyle}" BorderBrush="{StaticResource ResourceKey=AccentColorBrush}" Width="35" Padding="5" Click="RefreshButton_Click">
+                    <Image Source="appbar.refresh.png"/>
+                </Button>
+            </Border>
+        </Grid>
+    </Border>
+
+</Controls:MetroWindow>
