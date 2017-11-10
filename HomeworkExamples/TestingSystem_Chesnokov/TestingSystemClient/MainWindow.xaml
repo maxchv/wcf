@@ -1,0 +1,190 @@
+﻿<controls:MetroWindow x:Class="TestingSystemClient.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:local="clr-namespace:TestingSystemClient"
+                      Title="Система тестирования"
+                      Height="400"
+                      Width="700"
+
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+
+                      WindowStartupLocation="CenterScreen"
+                      
+                      Loaded="MainWindow_OnLoaded"
+                      Closing="MainWindow_OnClosing">
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Content="Регистрация"
+                    Click="RegistrationButton_OnClick"/>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MaxHeight="80"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="250"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        
+        <GroupBox Grid.Row="0"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="2"
+                  Header="Авторизация"
+                  Name="UserPersonalInfoGroupBox">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Column="0"
+                         controls:TextBoxHelper.Watermark="Логин"
+                         controls:TextBoxHelper.ClearTextButton="True"
+                         ToolTip="Логин"
+                         Name="LoginTextBox"
+                         Height="30"
+                         VerticalContentAlignment="Center"/>
+
+                <PasswordBox Grid.Column="1"
+                         controls:TextBoxHelper.Watermark="Пароль"
+                         controls:TextBoxHelper.ClearTextButton="True"
+                         ToolTip="Пароль"
+                         Name="PasswordPasswordBox"
+                         Margin="5,0,0,0"
+                         Height="30"
+                         VerticalContentAlignment="Center"/>
+
+                <Button Grid.Column="2"
+                        Content="Войти"
+                        Click="SigninToTestingSystemButton_OnClick"
+                        Margin="5,0,0,0"
+                        Style="{DynamicResource MetroFlatButton}"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1"
+                  Grid.Column="0"
+                  Header="Список тестов"
+                  Name="TestsGroupBox"
+                  IsEnabled="False">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <ListBox Grid.Row="0"
+                         Name="TestsListListBox">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"
+                                       ToolTip="{Binding Name}"
+                                       TextTrimming="CharacterEllipsis"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Button Grid.Row="1" 
+                        Content="Пройти тест"
+                        Name="TakeToTestButton"
+                        Height="30"
+                        Margin="0,5,0,0"
+                        Style="{DynamicResource MetroFlatButton}"
+                        Click="TakeToTestButton_OnClick"/>
+
+                <Button Grid.Row="2" 
+                        Content="Результаты теста"
+                        Height="30"
+                        Margin="0,5,0,0"
+                        Style="{DynamicResource MetroFlatButton}"
+                        Click="GetResultsTestButton_OnClick"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1"
+                  Grid.Column="1"
+                  Header="Тестирование"
+                  Name="TestingGroupBox"
+                  IsEnabled="False">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <local:QuestionsControl Grid.Row="0"
+                                        Grid.Column="0"
+                                        Grid.ColumnSpan="2"
+                                        x:Name="QuestionsControl">
+                    
+                </local:QuestionsControl>
+                
+                <Border Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,5,5,0"
+                        Width="120"
+                        ToolTip="Оставшееся время"
+                        HorizontalAlignment="Left"
+                        Background="Green"
+                        Name="TimeLeftBorder">
+                    <Grid VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <TextBlock Grid.Column="0"
+                                   Text="0 мин."
+                                   Name="MinutesTextBlock"
+                                   HorizontalAlignment="Right"
+                                   Margin="0,0,5,0"/>
+                        <TextBlock Grid.Column="1"
+                                   Text="0 сек."
+                                   Name="SecondsTextBlock"
+                                   HorizontalAlignment="Left"
+                                   Margin="5,0,0,0"/>
+                    </Grid>
+                </Border>
+                
+                <Button Grid.Row="1"
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Content="Завершить тест"
+                        Style="{DynamicResource MetroFlatButton}"
+                        Margin="0,5,0,0"
+                        Padding="20,6"
+                        Click="CompleteTestButton_OnClick"
+                        Name="CompleteTestButton"/>
+            </Grid>
+        </GroupBox>
+
+        <Grid Grid.Row="0"
+              Grid.RowSpan="2"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              Name="ProgressGrid"
+              Visibility="Hidden">
+            <Rectangle HorizontalAlignment="Stretch" 
+                       VerticalAlignment="Stretch" 
+                       Fill="LightGray" 
+                       Opacity="0.6"/>
+            <controls:ProgressRing Width="70"
+                                   Margin="0,10"/>
+            <TextBlock Text="Подождите происходит подключение..."
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" 
+                       Margin="0,120,0,0" 
+                       Name="ProgressInformationTextBlock"/>
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

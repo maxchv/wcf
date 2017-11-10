@@ -1,0 +1,68 @@
+﻿<controls:MetroWindow x:Class="RemoteEditingFilesClient.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      Title="Удаленное редактирование файлов"
+                      Height="400"
+                      Width="700"
+
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+
+                      WindowStartupLocation="CenterScreen"
+                      
+                      Loaded="MainWindow_OnLoaded"
+                      Closing="MainWindow_OnClosing">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Column="0"
+                  Header="Список файлов">
+            <ListBox Name="FilesNameListBox"
+                     SelectionChanged="FilesNameListBox_OnSelectionChanged"/>
+        </GroupBox>
+
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Margin="5,0,5,5">
+            <Image Source="Images/Add.png" 
+                   ToolTip="Добавить новый файл"
+                   Height="32"
+                   Width="32"
+                   Margin="5,0"
+                   MouseDown="AddNewFileButton_OnClick"
+                   Cursor="Hand"/>
+
+            <Image Source="Images/Clear.png" 
+                   ToolTip="Удалить выбранный файл"
+                   Height="32"
+                   Width="32"
+                   Margin="5,0"
+                   MouseDown="RemoveFileButton_OnClick"
+                   Cursor="Hand"/>
+        </StackPanel>
+        
+        <TextBox Grid.Row="0"
+                 Grid.Column="1"
+                 AcceptsReturn="True"
+                 AcceptsTab="True"
+                 Name="FileTextTextBox"
+                 BorderBrush="{DynamicResource AccentColorBrush}"
+                 BorderThickness="1"
+                 Margin="0,5,5,5"
+                 TextChanged="FileTextTextBox_OnTextChanged"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Visible"/>
+    </Grid>
+</controls:MetroWindow>

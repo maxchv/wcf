@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TestingSystemService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetHttpBinding_ITestingSystemService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/TestingSystemService" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITestingSystemService_NewClientConnected_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewClientConnected" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_ClientDisconnected_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClientDisconnected" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_LoginIsFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginIsFree" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_LoginIsFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginIsFreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_RegisterNewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNewUser" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_RegisterNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_SignIn_InputMessage">
+    <wsdl:part name="parameters" element="tns:SignIn" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_CreateNewTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewTest" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_GetListOfTests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListOfTests" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_StartTesting_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartTesting" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_EndTesting_InputMessage">
+    <wsdl:part name="parameters" element="tns:EndTesting" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_GetResultTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultTest" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_ChangeRating_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRating" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_ChangeRating_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeRatingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_GetResultsTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetResultsTest" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_SetTestList_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetTestList" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_SetQuestions_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetQuestions" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_ForciblyReturnTestResult_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ForciblyReturnTestResult" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_ResultOfUserSignIn_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ResultOfUserSignIn" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_ResultEndTesting_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:ResultEndTesting" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_SetTestResults_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetTestResults" />
+  </wsdl:message>
+  <wsdl:message name="ITestingSystemService_SetRemainingTime_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:SetRemainingTime" />
+  </wsdl:message>
+  <wsdl:portType name="ITestingSystemService">
+    <wsdl:operation name="NewClientConnected">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/NewClientConnected" message="tns:ITestingSystemService_NewClientConnected_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClientDisconnected">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/ClientDisconnected" message="tns:ITestingSystemService_ClientDisconnected_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginIsFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/LoginIsFree" message="tns:ITestingSystemService_LoginIsFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/LoginIsFreeResponse" message="tns:ITestingSystemService_LoginIsFree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/RegisterNewUser" message="tns:ITestingSystemService_RegisterNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/RegisterNewUserResponse" message="tns:ITestingSystemService_RegisterNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/SignIn" message="tns:ITestingSystemService_SignIn_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/CreateNewTest" message="tns:ITestingSystemService_CreateNewTest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfTests">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/GetListOfTests" message="tns:ITestingSystemService_GetListOfTests_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartTesting">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/StartTesting" message="tns:ITestingSystemService_StartTesting_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EndTesting">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/EndTesting" message="tns:ITestingSystemService_EndTesting_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/GetResultTest" message="tns:ITestingSystemService_GetResultTest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRating">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/ChangeRating" message="tns:ITestingSystemService_ChangeRating_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/ChangeRatingResponse" message="tns:ITestingSystemService_ChangeRating_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultsTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITestingSystemService/GetResultsTest" message="tns:ITestingSystemService_GetResultsTest_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTestList">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/SetTestList" message="tns:ITestingSystemService_SetTestList_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetQuestions">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/SetQuestions" message="tns:ITestingSystemService_SetQuestions_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForciblyReturnTestResult">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/ForciblyReturnTestResult" message="tns:ITestingSystemService_ForciblyReturnTestResult_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResultOfUserSignIn">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/ResultOfUserSignIn" message="tns:ITestingSystemService_ResultOfUserSignIn_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResultEndTesting">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/ResultEndTesting" message="tns:ITestingSystemService_ResultEndTesting_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTestResults">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/SetTestResults" message="tns:ITestingSystemService_SetTestResults_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRemainingTime">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITestingSystemService/SetRemainingTime" message="tns:ITestingSystemService_SetRemainingTime_OutputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetHttpBinding_ITestingSystemService" type="tns:ITestingSystemService">
+    <wsp:PolicyReference URI="#NetHttpBinding_ITestingSystemService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/websocket" />
+    <wsdl:operation name="NewClientConnected">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/NewClientConnected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ClientDisconnected">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/ClientDisconnected" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="LoginIsFree">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/LoginIsFree" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterNewUser">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/RegisterNewUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignIn">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/SignIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewTest">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/CreateNewTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetListOfTests">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/GetListOfTests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartTesting">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/StartTesting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="EndTesting">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/EndTesting" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultTest">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/GetResultTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeRating">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/ChangeRating" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultsTest">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/GetResultsTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetTestList">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/SetTestList" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetQuestions">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/SetQuestions" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ForciblyReturnTestResult">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/ForciblyReturnTestResult" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResultOfUserSignIn">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/ResultOfUserSignIn" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResultEndTesting">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/ResultEndTesting" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTestResults">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/SetTestResults" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRemainingTime">
+      <soap12:operation soapAction="http://tempuri.org/ITestingSystemService/SetRemainingTime" style="document" />
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TestingSystemService">
+    <wsdl:port name="NetHttpBinding_ITestingSystemService" binding="tns:NetHttpBinding_ITestingSystemService">
+      <soap12:address location="ws://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>ws://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

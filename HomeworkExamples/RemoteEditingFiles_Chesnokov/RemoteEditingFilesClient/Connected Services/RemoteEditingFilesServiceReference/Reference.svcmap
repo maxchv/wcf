@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2df3522b-2f9d-4bdd-a66d-2b26b45d9c6e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:1800/RemoteEditingFilesService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RemoteEditingFilesService.xsd" MetadataType="Schema" ID="01a36cdb-9efd-48be-bf9d-586250bfe027" SourceId="1" SourceUrl="http://localhost:1800/RemoteEditingFilesService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RemoteEditingFilesService.disco" MetadataType="Disco" ID="6f3c9dda-7fe9-451e-983a-f1a9ff85b9cf" SourceId="1" SourceUrl="http://localhost:1800/RemoteEditingFilesService.svc?disco" />
+    <MetadataFile FileName="RemoteEditingFilesService.wsdl" MetadataType="Wsdl" ID="3205743b-2468-4a96-8650-511037cb965f" SourceId="1" SourceUrl="http://localhost:1800/RemoteEditingFilesService.svc?wsdl" />
+    <MetadataFile FileName="RemoteEditingFilesService1.xsd" MetadataType="Schema" ID="83083751-2286-4e73-8cdb-caea467b875c" SourceId="1" SourceUrl="http://localhost:1800/RemoteEditingFilesService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RemoteEditingFilesService2.xsd" MetadataType="Schema" ID="9244299c-5e85-45bc-afcc-068cc56311c8" SourceId="1" SourceUrl="http://localhost:1800/RemoteEditingFilesService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="25796331-6fec-4b1b-b50e-2c0ad567275c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="8bdbf657-49ec-4eec-b33a-ef2815056388" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="476d7a7d-eab2-497b-a185-c5b9086c529a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="6c478807-04d4-461b-ad7d-43b637aa3a7c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/mex" />
+    <MetadataFile FileName="TestingSystemService.xsd" MetadataType="Schema" ID="59f3b0fc-989e-408d-8723-42d2b1f2b6a3" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="b236fda2-7663-4e42-9a02-982c6892cb47" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/TestingSystemService/TestingSystemService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

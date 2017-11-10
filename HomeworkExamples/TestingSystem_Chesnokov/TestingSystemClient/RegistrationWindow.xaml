@@ -1,0 +1,72 @@
+﻿<Controls:MetroWindow x:Class="TestingSystemClient.RegistrationWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:local="clr-namespace:TestingSystemClient"
+                      Title="Регистрация нового пользователя"
+                      Height="300"
+                      Width="450"
+
+                      BorderBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+
+                      WindowStartupLocation="CenterScreen"
+                      ResizeMode="NoResize">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBox Grid.Row="0"
+                 Controls:TextBoxHelper.Watermark="Логин"
+                 Controls:TextBoxHelper.ClearTextButton="True"
+                 ToolTip="Логин"
+                 Name="Login"
+                 Height="30"
+                 VerticalContentAlignment="Center"
+                 BorderBrush="Orange"
+                 BorderThickness="0,0,0,2"/>
+
+        <PasswordBox Grid.Row="1"
+                 Controls:TextBoxHelper.Watermark="Пароль"
+                 Controls:TextBoxHelper.ClearTextButton="True"
+                 ToolTip="Пароль"
+                 Name="Password"
+                 Height="30"
+                 VerticalContentAlignment="Center"
+                 BorderBrush="Orange"
+                 BorderThickness="0,0,0,2"/>
+
+        <TextBox Grid.Row="2"
+                 Controls:TextBoxHelper.Watermark="ФИО"
+                 Controls:TextBoxHelper.ClearTextButton="True"
+                 ToolTip="ФИО"
+                 Name="UserName"
+                 Height="30"
+                 VerticalContentAlignment="Center"
+                 BorderBrush="Orange"
+                 BorderThickness="0,0,0,2"/>
+
+        <TextBox Grid.Row="3"
+                 Controls:TextBoxHelper.Watermark="Группа"
+                 Controls:TextBoxHelper.ClearTextButton="True"
+                 ToolTip="Группа"
+                 Name="Group"
+                 Height="30"
+                 VerticalContentAlignment="Center"
+                 BorderBrush="Orange"
+                 BorderThickness="0,0,0,2"/>
+        
+        <Button Grid.Row="4" 
+                Content="Зарегистрировать"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Padding="25,10"
+                Style="{DynamicResource MetroFlatButton}"
+                Click="RegistrationNewUserButton_OnClick"/>
+    </Grid>
+</Controls:MetroWindow>
